@@ -13,7 +13,7 @@ describe Account do
 
     context "with invalid input" do
       it "throws an InvalidAccountNumberError when acct_number has less than 10 digits" do
-        expect(Account.new("123")).to raise_error(InvalidAccountNumberError)
+        expect(Account.new("123")).to throw(InvalidAccountNumberError)
       end
     end
   end
@@ -21,6 +21,7 @@ describe Account do
   context "when using default starting_balance" do
     describe "#transactions" do
       it "returns the default starting_balance" do
+        expect(account.starting_balance).to eq(0)
       end
     end
 
